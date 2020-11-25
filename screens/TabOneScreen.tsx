@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Alert } from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
@@ -9,22 +9,30 @@ export default function TabOneScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
-        <EventButton title="Sleep" subtitle="Set start of sleep" icon="sleep" />
+        <EventButton
+          title="Sleep"
+          subtitle="Set start of sleep"
+          icon="sleep"
+          onPress={() => Alert.alert("BABYLOG", "Sleep")}
+        />
         <EventButton
           title="Wake up"
           subtitle="Set start of wake up"
           icon="sleep-off"
+          onPress={() => Alert.alert("BABYLOG", "Wake up")}
         />
         <EventButton
           title="Feed"
           subtitle="Set feed time"
           icon="food-variant"
+          onPress={() => Alert.alert("BABYLOG", "Feed")}
         />
-        <EventButton title="Batch" subtitle="Set batch time" icon="duck" />
+        <EventButton title="Bath" subtitle="Set bath time" icon="duck" onPress={() => Alert.alert("BABYLOG", "Bath")} />
         <EventButton
           title="Diaper"
           subtitle="Set diaper change time"
           icon="emoticon-poop"
+          onPress={() => Alert.alert("BABYLOG", "Diaper")}
         />
       </View>
       <EditScreenInfo path="/screens/TabOneScreen.js" />

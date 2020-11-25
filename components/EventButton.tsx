@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { Icon } from "native-base";
 
 type EventButtonProps = {
@@ -7,19 +7,24 @@ type EventButtonProps = {
   subtitle: string;
   color?: string;
   icon: string;
+  onPress: () => void;
 };
 
-const EventButton = ({ title, subtitle, color, icon }: EventButtonProps) => (
-  <View style={{ width: 120, height: 120 }}>
+const EventButton = ({ title, subtitle, color, icon, onPress }: EventButtonProps) => (
+  <TouchableOpacity style={styles.touchable} onPress={onPress} >
     <View style={styles.container}>
       <Icon style={styles.icon} type="MaterialCommunityIcons" name={icon} />
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.subtitle}>{subtitle}</Text>
     </View>
-  </View>
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
+  touchable: {
+    width: 120, 
+    height: 120
+  },
   container: {
     flex: 1,
     flexDirection: "column",
